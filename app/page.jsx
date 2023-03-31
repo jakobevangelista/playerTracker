@@ -1,57 +1,30 @@
-"use client";
-import PocketBase from "pocketbase";
-import { redirect, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import Welcome from "./Welcome";
+import Tables from "./tables/page";
 
-const pb = new PocketBase("http://45.33.6.9:81");
+async function getData() {
+  const res = await fetch("http://localhost:3000/api/hello", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 
-async function getTables() {
-  // const records = await pb.collection("table").getFullList({
-  //   sort: "-created",
-  // });
-  const res = await fetch(
-    "http://45.33.6.9:81/_/#/collections?collectionId=6hefqmhdmxwit5e&filter=&sort=-created"
-  );
-  data = await res.json();
-  console.log(data);
-  return data;
+  return res.json();
 }
 
 export default async function Home() {
-  const router = useRouter();
-  const [username, setUsername] = useState("");
-  // const [records, setRecords] = useState("");
-  // const [userInput, setUserInput] = useState("");
-
-  useEffect(() => {
-    if (!pb.authStore.token || !pb.authStore.isValid) {
-      redirect("/login");
-    } else {
-      setUsername(pb.authStore.model.username);
-    }
-  });
-
-  function logout() {
-    pb.authStore.clear();
-    router.push("/login");
-  }
-  // const tables = await getTables();
-
+  const data = await getData();
   return (
     <>
-      <h1>We back {username}</h1>
-      <button onClick={logout}>Logout</button>
-      {/* <div>
-        {tables.map((table) => {
-          return <Table key={table.id} />;
-        })}
-      </div> */}
+      <div className="flex flex-row">
+        <div className="flex flex-col bg-[#343541] w-1/5 h-screen text-white">
+          <Welcome />
+        </div>
+        <div className="flex flex-row w-5/6 bg-[#202123] h-screen text-white">
+          <Tables />
+          {/* <div>{data.response}</div> */}
+        </div>
+      </div>
     </>
   );
 }
-
-// function Table(table) {
-//   const { id } = table;
-
-//   return <div>{id}</div>;
-// }
