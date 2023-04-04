@@ -5,13 +5,13 @@ import { useState, useContext } from "react";
 import React from "react";
 import { PocketBaseContext } from "../PocketBaseWrapper";
 
+const pb = new PocketBase("http://45.33.6.9:81");
+
 export default function Login() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
   let { currentUser } = useContext(PocketBaseContext);
-
-  const pb = new PocketBase("http://45.33.6.9:81");
 
   async function login() {
     await pb.collection("users").authWithPassword(userName, password);
