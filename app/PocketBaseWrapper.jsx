@@ -5,7 +5,7 @@ import Pocketbase from "pocketbase";
 
 export const PocketBaseContext = createContext({});
 
-const pb = new Pocketbase("http://45.33.6.9:81");
+const pb = new Pocketbase("https://backend.jakobevangelista.com:443");
 
 export default function PocketBaseWrapper({ children }) {
   const [currentUser, setCurrentUser] = useState(pb.authStore.model);

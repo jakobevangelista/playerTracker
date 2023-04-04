@@ -4,7 +4,7 @@ import { redirect, useRouter } from "next/navigation";
 import { useEffect, useContext } from "react";
 import { PocketBaseContext } from "./PocketBaseWrapper";
 
-const pb = new PocketBase("https://backend.jakobevangelista.com");
+const pb = new PocketBase("https://backend.jakobevangelista.com:443");
 
 export default function Welcome() {
   const router = useRouter();

@@ -4,7 +4,7 @@ import PocketBase from "pocketbase";
 import { PocketBaseContext } from "../../PocketBaseWrapper";
 import { useRouter } from "next/navigation";
 
-const pb = new PocketBase("http://45.33.6.9:81");
+const pb = new PocketBase("https://backend.jakobevangelista.com:443");
 export const dynamic = "auto",
   dynamicParams = true,
   revalidate = 0,

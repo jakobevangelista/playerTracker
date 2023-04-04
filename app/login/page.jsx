@@ -5,7 +5,7 @@ import { useState, useContext } from "react";
 import React from "react";
 import { PocketBaseContext } from "../PocketBaseWrapper";
 
-const pb = new PocketBase("https://backend.jakobevangelista.com");
+const pb = new PocketBase("https://backend.jakobevangelista.com:443");
 
 export default function Login() {
   const [userName, setUserName] = useState("");

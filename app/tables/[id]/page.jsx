@@ -9,7 +9,7 @@ export const dynamic = "auto",
   runtime = "nodejs",
   preferredRegion = "auto";
 
-const pb = new PocketBase("http://45.33.6.9:81");
+const pb = new PocketBase("https://backend.jakobevangelista.com:443");
 
 async function getTable(id) {
   const res = await pb.collection("tables").getOne(id, { expand: "tablename" });

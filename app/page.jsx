@@ -3,7 +3,7 @@ import Welcome from "./Welcome";
 import Tables from "./tables/page";
 import PocketBase from "pocketbase";
 
-const pb = new PocketBase("http://45.33.6.9:81");
+const pb = new PocketBase("https://backend.jakobevangelista.com:443");
 
 // async function getData() {
 //   const res = await fetch("http://localhost:3000/api/hello", {
