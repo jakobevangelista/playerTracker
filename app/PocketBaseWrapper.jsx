@@ -14,7 +14,7 @@ export default function PocketBaseWrapper({ children }) {
     setCurrentUser(pb.authStore.model);
   });
   return (
-    <PocketBaseContext.Provider value={{ currentUser, pb }}>
+    <PocketBaseContext.Provider value={{ currentUser }}>
       {children}
     </PocketBaseContext.Provider>
   );

@@ -5,17 +5,26 @@ import { useState, useContext } from "react";
 import React from "react";
 import { PocketBaseContext } from "../PocketBaseWrapper";
 
-const pb = new PocketBase("http://45.33.6.9:81");
+const pb = new PocketBase("https://backend.jakobevangelista.com");
 
 export default function Login() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
-  let { currentUser } = useContext(PocketBaseContext);
+  // let { currentUser } = useContext(PocketBaseContext);
 
   async function login() {
-    await pb.collection("users").authWithPassword(userName, password);
-    if (currentUser) {
+    // await pb.collection("users").authWithPassword(userName, password);
+    // setCurrentUser(
+    //   await pb.collection("users").authWithPassword(userName, password)
+    // );
+    // if (currentUser) {
+    //   router.push("/");
+    // }
+    const authData = await pb
+      .collection("users")
+      .authWithPassword(userName, password);
+    if (pb.authStore.model) {
       router.push("/");
     }
   }

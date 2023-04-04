@@ -4,13 +4,16 @@ import { redirect, useRouter } from "next/navigation";
 import { useEffect, useContext } from "react";
 import { PocketBaseContext } from "./PocketBaseWrapper";
 
-const pb = new PocketBase("http://45.33.6.9:81");
+const pb = new PocketBase("https://backend.jakobevangelista.com");
 
 export default function Welcome() {
   const router = useRouter();
-  let { currentUser } = useContext(PocketBaseContext);
+  // let { currentUser } = useContext(PocketBaseContext);
 
-  if (!currentUser) {
+  // if (!currentUser) {
+  //   redirect("/login");
+  // }
+  if (!pb.authStore.model) {
     redirect("/login");
   }
 
@@ -27,7 +30,7 @@ export default function Welcome() {
         onClick={goHome}
         className="text-center py-3 px-3 rounded-md hover:underline text-white cursor-pointer"
       >
-        Welcome {currentUser.username}
+        Welcome {pb.authStore.model.username}
       </div>
       <button
         className="button is-danger is-medium mx-8 mt-6 py-4 rounded-md"

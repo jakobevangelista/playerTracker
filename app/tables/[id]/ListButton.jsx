@@ -14,19 +14,26 @@ export const dynamic = "auto",
 
 export default function ListButton({ tableId, tableUsers }) {
   const [onList, setOnList] = useState();
-  let { currentUser } = useContext(PocketBaseContext);
+  // let { currentUser } = useContext(PocketBaseContext);
   const router = useRouter();
 
+  // useEffect(() => {
+  //   if (tableUsers.indexOf(currentUser.id) > -1) {
+  //     setOnList(true);
+  //   } else {
+  //     setOnList(false);
+  //   }
+  // });
+
   useEffect(() => {
-    if (tableUsers.indexOf(currentUser.id) > -1) {
+    if (tableUsers.indexOf(pb.authStore.model.id) > -1) {
       setOnList(true);
     } else {
       setOnList(false);
     }
   });
-
   async function joinList() {
-    tableUsers.push(currentUser.id);
+    tableUsers.push(pb.authStore.model.id);
     const data = {
       users: tableUsers,
     };
@@ -35,7 +42,7 @@ export default function ListButton({ tableId, tableUsers }) {
     router.refresh();
   }
   async function leaveList() {
-    const targetIndex = tableUsers.indexOf(currentUser.id);
+    const targetIndex = tableUsers.indexOf(pb.authStore.model.id);
     tableUsers.splice(targetIndex, 1);
     const data = {
       users: tableUsers,
@@ -48,7 +55,7 @@ export default function ListButton({ tableId, tableUsers }) {
     return (
       <>
         <button class="card-footer-item" onClick={leaveList}>
-          Leave List {currentUser.id}
+          Leave List {pb.authStore.model.id}
         </button>
       </>
     );
@@ -56,7 +63,7 @@ export default function ListButton({ tableId, tableUsers }) {
     return (
       <>
         <button class="button card-footer-item" onClick={joinList}>
-          Join List {currentUser.id}
+          Join List {pb.authStore.model.id}
         </button>
       </>
     );
