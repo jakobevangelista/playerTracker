@@ -24,7 +24,7 @@ async function getUser(id) {
 
 export default async function Tables() {
   const tables = await getTables();
-  console.log(tables);
+  // console.log(tables);
   //   console.log(tables);
   //   console.log(tables[1].users[0]);
   const user1 = await getUser(tables[1].users[0]);
@@ -44,7 +44,7 @@ function Table({ table }) {
   const { id, users, testfield, tablename } = table || {};
 
   return (
-    <Link class="button" href={`/tables/${id}`}>
+    <Link className="button" href={`/tables/${id}`}>
       <div>{tablename}</div>
     </Link>
   );

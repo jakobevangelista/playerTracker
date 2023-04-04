@@ -1,19 +1,22 @@
+// "use client";
 import Welcome from "./Welcome";
 import Tables from "./tables/page";
+import PocketBase from "pocketbase";
 
-async function getData() {
-  const res = await fetch("http://localhost:3000/api/hello", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+const pb = new PocketBase("http://45.33.6.9:81");
 
-  return res.json();
-}
+// async function getData() {
+//   const res = await fetch("http://localhost:3000/api/hello", {
+//     method: "GET",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//   });
+
+//   return res.json();
+// }
 
 export default async function Home() {
-  const data = await getData();
   return (
     <>
       <div className="flex flex-row">

@@ -1,21 +1,21 @@
 "use client";
 import { useRouter } from "next/navigation";
 import PocketBase from "pocketbase";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import React from "react";
+import { PocketBaseContext } from "../PocketBaseWrapper";
 
 export default function Login() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
+  let { currentUser } = useContext(PocketBaseContext);
 
   const pb = new PocketBase("http://45.33.6.9:81");
 
   async function login() {
-    const authData = await pb
-      .collection("users")
-      .authWithPassword(userName, password);
-    if (pb.authStore.isValid) {
+    await pb.collection("users").authWithPassword(userName, password);
+    if (currentUser) {
       router.push("/");
     }
   }
@@ -44,7 +44,7 @@ export default function Login() {
                     id="username"
                     name="username"
                     type="username"
-                    autocomplete="email"
+                    autoComplete="username"
                     required
                     value={userName}
                     onChange={(e) => setUserName(e.target.value)}

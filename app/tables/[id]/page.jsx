@@ -1,5 +1,13 @@
 import PocketBase from "pocketbase";
 import Welcome from "@/app/Welcome";
+import ListButton from "./ListButton";
+
+export const dynamic = "auto",
+  dynamicParams = true,
+  revalidate = 0,
+  fetchCache = "auto",
+  runtime = "nodejs",
+  preferredRegion = "auto";
 
 const pb = new PocketBase("http://45.33.6.9:81");
 
@@ -10,6 +18,7 @@ async function getTable(id) {
 
 export default async function TablePage({ params }) {
   const table = await getTable(params.id);
+
   return (
     <>
       <div className="flex flex-row">
@@ -36,9 +45,7 @@ export default async function TablePage({ params }) {
               </div>
             </div>
             <footer class="card-footer">
-              <a href="#" class="card-footer-item">
-                Join List
-              </a>
+              <ListButton tableId={table.id} tableUsers={table.users} />
             </footer>
           </div>
         </div>

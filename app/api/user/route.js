@@ -3,10 +3,16 @@ import PocketBase from "pocketbase";
 
 const pb = new PocketBase("http://45.33.6.9:81");
 
-export async function POST(request) {
-  if (!pb.authStore.token || !pb.authStore.isValid) {
-    return NextResponse.json({ response: "Not logged in" });
+export async function POST(req) {
+  const authData = await pb
+    .collection("users")
+    .authWithPassword(req.body.username, req.body.password);
+  if (!authData) {
+    return NextResponse.json({ response: "bad" });
   } else {
-    return NextResponse.json({ response: "Logged In!" });
+    return NextResponse.json({
+      response: "good",
+      headers: { "Set-Cookie": pb.authStore },
+    });
   }
 }
