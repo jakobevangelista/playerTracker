@@ -1,8 +1,8 @@
 "use client";
 import PocketBase from "pocketbase";
 import { redirect, useRouter } from "next/navigation";
-import { useEffect, useContext } from "react";
-import { PocketBaseContext } from "./PocketBaseWrapper";
+import { Button, ButtonGroup } from "@chakra-ui/react";
+import { Badge } from "@chakra-ui/react";
 
 const pb = new PocketBase("https://backend.jakobevangelista.com:443");
 
@@ -32,18 +32,12 @@ export default function Welcome() {
       >
         Welcome {pb.authStore.model.username}
       </div>
-      <button
-        className="button is-danger is-medium mx-8 mt-6 py-4 rounded-md"
-        onClick={logout}
-      >
+      <Button colorScheme="blue" onClick={logout}>
         Logout
-      </button>
-      <button
-        className="button is-danger is-medium mx-8 mt-6 py-4 rounded-md"
-        onClick={goHome}
-      >
+      </Button>
+      <Button colorScheme="blue" onClick={goHome}>
         Home
-      </button>
+      </Button>
     </>
   );
 }

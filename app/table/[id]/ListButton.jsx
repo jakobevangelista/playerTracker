@@ -14,16 +14,8 @@ export const dynamic = "auto",
 
 export default function ListButton({ tableId, tableUsers }) {
   const [onList, setOnList] = useState();
-  // let { currentUser } = useContext(PocketBaseContext);
-  const router = useRouter();
 
-  // useEffect(() => {
-  //   if (tableUsers.indexOf(currentUser.id) > -1) {
-  //     setOnList(true);
-  //   } else {
-  //     setOnList(false);
-  //   }
-  // });
+  const router = useRouter();
 
   useEffect(() => {
     if (tableUsers.indexOf(pb.authStore.model.id) > -1) {

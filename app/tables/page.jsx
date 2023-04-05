@@ -1,5 +1,6 @@
 import PocketBase from "pocketbase";
 import Link from "next/link";
+import Table from "../table/page";
 
 export const dynamic = "auto",
   dynamicParams = true,
@@ -17,18 +18,10 @@ async function getTables() {
   return res.items;
 }
 
-async function getUser(id) {
-  const res = await pb.collection("users").getOne(id, { expand: "name" });
-  return res;
-}
-
 export default async function Tables() {
   const tables = await getTables();
-  // console.log(tables);
-  //   console.log(tables);
-  //   console.log(tables[1].users[0]);
-  const user1 = await getUser(tables[1].users[0]);
-  //   console.log(user1);
+  console.log(tables);
+
   return (
     <>
       <div>
@@ -37,15 +30,5 @@ export default async function Tables() {
         ))}
       </div>
     </>
-  );
-}
-
-function Table({ table }) {
-  const { id, users, testfield, tablename } = table || {};
-
-  return (
-    <Link className="button" href={`/tables/${id}`}>
-      <div>{tablename}</div>
-    </Link>
   );
 }
