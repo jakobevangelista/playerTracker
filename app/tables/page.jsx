@@ -1,5 +1,4 @@
 import PocketBase from "pocketbase";
-import Link from "next/link";
 import Table from "../table/page";
 
 export const dynamic = "auto",
@@ -20,13 +19,20 @@ async function getTables() {
 
 export default async function Tables() {
   const tables = await getTables();
-  console.log(tables);
+  // console.log(tables);
 
   return (
     <>
       <div>
         {tables.map((table) => (
-          <Table key={table.id} table={table} />
+          // <Table key={table.id} table={table} />
+          <Table
+            key={table.id}
+            tableId={table.id}
+            tableUsers={table.users}
+            tableTestField={table.testField}
+            tableName={table.tablename}
+          />
         ))}
       </div>
     </>

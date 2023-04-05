@@ -35,9 +35,9 @@ export default function Welcome() {
       <Button colorScheme="blue" onClick={logout}>
         Logout
       </Button>
-      <Button colorScheme="blue" onClick={goHome}>
+      {/* <Button colorScheme="blue" onClick={goHome}>
         Home
-      </Button>
+      </Button> */}
     </>
   );
 }

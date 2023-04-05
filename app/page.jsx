@@ -3,6 +3,13 @@ import Welcome from "./Welcome";
 import Tables from "./tables/page";
 import PocketBase from "pocketbase";
 
+export const dynamic = "auto",
+  dynamicParams = true,
+  revalidate = 0,
+  fetchCache = "auto",
+  runtime = "nodejs",
+  preferredRegion = "auto";
+
 const pb = new PocketBase("https://backend.jakobevangelista.com:443");
 
 // async function getData() {

@@ -1,7 +1,6 @@
 "use client";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import PocketBase from "pocketbase";
-import { PocketBaseContext } from "../../PocketBaseWrapper";
 import { useRouter } from "next/navigation";
 
 const pb = new PocketBase("https://backend.jakobevangelista.com:443");
