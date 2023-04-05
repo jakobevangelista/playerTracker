@@ -30,6 +30,7 @@ export default async function Tables() {
             key={table.id}
             tableId={table.id}
             tableUsers={table.users}
+            numUsers={table.users.length}
             tableTestField={table.testField}
             tableName={table.tablename}
           />

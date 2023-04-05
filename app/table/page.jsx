@@ -22,6 +22,7 @@ export const dynamic = "auto",
 export default function Table({
   tableId,
   tableUsers,
+  numUsers,
   tableTestField,
   tableName,
 }) {
@@ -33,10 +34,10 @@ export default function Table({
             <Heading size="md">{tableName}</Heading>
             <Text>{tableTestField}</Text>
             <Text color="blue.600" fontSize="2xl">
-              Players: {tableUsers.length}
+              Players: {numUsers}
             </Text>
             <Text color="blue.600" fontSize="2xl">
-              {tableUsers.map((user) => (
+              {tableUsers?.map((user) => (
                 <Text key={user} color="blue.600" fontSize="2xl">
                   {user}
                 </Text>
