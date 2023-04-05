@@ -93,7 +93,7 @@ export default function Login() {
           </form>
 
           <Text mb="6" color={colorMode === "light" ? "gray.600" : "gray.400"}>
-            Don't have an account?{" "}
+            Don't have an account?
             <Link color="blue.500" href="#">
               Create new account
             </Link>
