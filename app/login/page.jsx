@@ -15,6 +15,7 @@ import {
   FormControl,
   FormLabel,
   useColorMode,
+  useToast,
 } from "@chakra-ui/react";
 
 const pb = new PocketBase("https://backend.jakobevangelista.com:443");
@@ -24,12 +25,13 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const router = useRouter();
   const { colorMode, toggleColorMode } = useColorMode("dark");
+  const toast = useToast();
 
   async function login() {
     const authData = await pb
       .collection("users")
       .authWithPassword(userName, password);
-    if (pb.authStore.model) {
+    if (authData) {
       router.push("/");
     }
   }

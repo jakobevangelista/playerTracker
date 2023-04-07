@@ -8,8 +8,6 @@ import {
   Text,
   Divider,
   CardFooter,
-  Button,
-  ButtonGroup,
 } from "@chakra-ui/react";
 import BottomButton from "./BottomButtons";
 export const dynamic = "auto",
@@ -23,7 +21,7 @@ export default function Table({
   tableId,
   tableUsers,
   numUsers,
-  tableTestField,
+  tableDescription,
   tableName,
 }) {
   return (
@@ -32,7 +30,7 @@ export default function Table({
         <CardBody>
           <Stack mt="6" spacing="3">
             <Heading size="md">{tableName}</Heading>
-            <Text>{tableTestField}</Text>
+            <Text>{tableDescription}</Text>
             <Text color="blue.600" fontSize="2xl">
               Players: {numUsers}
             </Text>
