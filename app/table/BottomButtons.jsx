@@ -47,11 +47,23 @@ export default function BottomButton({ tId, tUsers }) {
     setOnList(false);
     router.refresh();
   }
+  async function deleteTable() {
+    await pb.collection("tables").delete(tId);
+    router.refresh();
+  }
 
-  if (onList) {
+  if (pb.authStore.model.email === "shadowjakey27@gmail.com") {
     return (
       <>
-        <Button variant="solid" colorScheme="blue" onClick={leaveList}>
+        <Button variant='solid' colorScheme='red' onClick={deleteTable}>
+          Delete Table
+        </Button>
+      </>
+    );
+  } else if (onList) {
+    return (
+      <>
+        <Button variant='solid' colorScheme='blue' onClick={leaveList}>
           Leave List
         </Button>
       </>
@@ -59,7 +71,7 @@ export default function BottomButton({ tId, tUsers }) {
   } else {
     return (
       <>
-        <Button variant="solid" colorScheme="blue" onClick={joinList}>
+        <Button variant='solid' colorScheme='blue' onClick={joinList}>
           Join List
         </Button>
       </>

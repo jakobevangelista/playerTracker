@@ -26,11 +26,11 @@ const pb = new PocketBase("https://backend.jakobevangelista.com:443");
 export default async function Home() {
   return (
     <>
-      <div className="flex flex-row">
-        <div className="flex flex-col bg-[#343541] w-1/5 h-screen text-white">
+      <div className='flex flex-row'>
+        <div className='flex flex-col bg-[#343541] w-1/5 h-screen text-white overflow-hidden'>
           <Welcome />
         </div>
-        <div className="flex flex-row w-5/6 bg-[#202123] h-screen text-white">
+        <div className='flex flex-row w-5/6 bg-[#202123] h-screen overflow-auto text-white'>
           <Tables />
           {/* <div>{data.response}</div> */}
         </div>
