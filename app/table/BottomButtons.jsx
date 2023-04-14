@@ -52,7 +52,7 @@ export default function BottomButton({ tId, tUsers }) {
     router.refresh();
   }
 
-  if (pb.authStore.model.email === "shadowjakey27@gmail.com") {
+  if (pb.authStore.model?.email === "shadowjakey27@gmail.com") {
     return (
       <>
         <Button variant='solid' colorScheme='red' onClick={deleteTable}>

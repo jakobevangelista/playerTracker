@@ -20,6 +20,7 @@ export default function Welcome() {
   const [tableName, setTableName] = useState("");
   const [tableDescription, setTableDescription] = useState("");
   const [textMessage, setTextMessage] = useState("");
+  // const userEmail = pb.authStore.model?.email || {};
   // let { currentUser } = useContext(PocketBaseContext);
 
   // if (!currentUser) {
@@ -56,7 +57,7 @@ export default function Welcome() {
     });
   }
 
-  if (pb.authStore.model.email === "shadowjakey27@gmail.com") {
+  if (pb.authStore.model?.email === "shadowjakey27@gmail.com") {
     return (
       <>
         <div

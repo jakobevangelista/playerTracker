@@ -43,7 +43,7 @@ export default function Table({
 
     router.refresh();
   }
-  if (pb.authStore.model.email === "shadowjakey27@gmail.com") {
+  if (pb.authStore.model?.email === "shadowjakey27@gmail.com") {
     return (
       <>
         <Card maxW='sm' className='m-6'>
