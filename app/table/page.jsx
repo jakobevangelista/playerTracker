@@ -57,7 +57,7 @@ export default function Table({
               <Text color='blue.600' fontSize='2xl'>
                 {tableUsers?.map((user) => (
                   <Text key={user} color='blue.600' fontSize='2xl'>
-                    {user}
+                    {user.username}
                     <Button
                       key={user}
                       colorScheme='red'
