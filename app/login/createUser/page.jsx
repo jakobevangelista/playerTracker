@@ -36,7 +36,7 @@ export default function Login() {
 
     const record = await pb.collection("users").create(data);
     if (record) {
-      router.push("/");
+      router.push("/login");
     }
   }
 
