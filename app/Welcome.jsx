@@ -48,7 +48,8 @@ export default function Welcome() {
   }
 
   async function handleSendText() {
-    const res = await fetch(`${process.env.APIURL}/api/messages`, {
+    // const res = await fetch(`${process.env.APIURL}/api/message`, {
+    const res = await fetch(`/api/message`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -62,37 +63,36 @@ export default function Welcome() {
       <>
         <div
           onClick={goHome}
-          className='text-center py-3 px-3 rounded-md hover:underline text-white cursor-pointer'
+          className="text-center py-3 px-3 rounded-md hover:underline text-white cursor-pointer"
         >
           Welcome {pb.authStore.model.email}
         </div>
-        <Button colorScheme='blue' onClick={logout}>
+        <Button colorScheme="blue" onClick={logout}>
           Logout {pb.authStore.model.email}
         </Button>
-        <div>Admin signed in</div>
-        <Box maxW='md' mx='auto' mt={8}>
+        <Box maxW="md" mx="auto" mt={8}>
           <form onSubmit={(e) => e.preventDefault()}>
-            <FormControl id='tableName' mb={4}>
+            <FormControl id="tableName" mb={4}>
               <FormLabel>Table Name</FormLabel>
               <Input
-                type='text'
+                type="text"
                 onChange={(e) => setTableName(e.target.value)}
               />
             </FormControl>
-            <FormControl id='description' mb={4}>
+            <FormControl id="description" mb={4}>
               <FormLabel>Description</FormLabel>
               <Textarea onChange={(e) => setTableDescription(e.target.value)} />
             </FormControl>
-            <Button colorScheme='blue' type='submit' onClick={handleAddTable}>
+            <Button colorScheme="blue" type="submit" onClick={handleAddTable}>
               Add Table
             </Button>
           </form>
           <form onSubmit={(e) => e.preventDefault()}>
-            <FormControl id='textMessage' mb={4}>
+            <FormControl id="textMessage" mb={4}>
               <FormLabel>Text Message</FormLabel>
               <Textarea onChange={(e) => setTextMessage(e.target.value)} />
             </FormControl>
-            <Button colorScheme='blue' type='submit' onClick={handleSendText}>
+            <Button colorScheme="blue" type="submit" onClick={handleSendText}>
               Send Text
             </Button>
           </form>
@@ -104,11 +104,11 @@ export default function Welcome() {
     <>
       <div
         onClick={goHome}
-        className='text-center py-3 px-3 rounded-md hover:underline text-white cursor-pointer'
+        className="text-center py-3 px-3 rounded-md hover:underline text-white cursor-pointer"
       >
         Welcome {pb.authStore.model.username}
       </div>
-      <Button colorScheme='blue' onClick={logout}>
+      <Button colorScheme="blue" onClick={logout}>
         Logout {pb.authStore.model.email}
       </Button>
       {/* <Button colorScheme="blue" onClick={goHome}>

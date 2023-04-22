@@ -46,21 +46,21 @@ export default function Table({
   if (pb.authStore.model?.email === "shadowjakey27@gmail.com") {
     return (
       <>
-        <Card maxW='sm' className='m-6'>
+        <Card maxW="sm" className="m-6">
           <CardBody>
-            <Stack mt='6' spacing='3'>
-              <Heading size='md'>{tableName}</Heading>
+            <Stack mt="6" spacing="3">
+              <Heading size="md">{tableName}</Heading>
               <Text>{tableDescription}</Text>
-              <Text color='blue.600' fontSize='2xl'>
+              <Text color="blue.600" fontSize="2xl">
                 Players: {numUsers}
               </Text>
-              <Text color='blue.600' fontSize='2xl'>
+              <Text color="blue.600" fontSize="2xl">
                 {tableUsers?.map((user) => (
-                  <Text key={user} color='blue.600' fontSize='2xl'>
-                    {user.username}
+                  <Text key={user} color="blue.600" fontSize="2xl">
+                    {user}
                     <Button
                       key={user}
-                      colorScheme='red'
+                      colorScheme="red"
                       onClick={(e) => {
                         e.stopPropagation();
                         deleteUser(user);
@@ -83,17 +83,17 @@ export default function Table({
   } else {
     return (
       <>
-        <Card maxW='sm' className='m-6'>
+        <Card maxW="sm" className="m-6">
           <CardBody>
-            <Stack mt='6' spacing='3'>
-              <Heading size='md'>{tableName}</Heading>
+            <Stack mt="6" spacing="3">
+              <Heading size="md">{tableName}</Heading>
               <Text>{tableDescription}</Text>
-              <Text color='blue.600' fontSize='2xl'>
+              <Text color="blue.600" fontSize="2xl">
                 Players: {numUsers}
               </Text>
-              <Text color='blue.600' fontSize='2xl'>
+              <Text color="blue.600" fontSize="2xl">
                 {tableUsers?.map((user) => (
-                  <Text key={user} color='blue.600' fontSize='2xl'>
+                  <Text key={user} color="blue.600" fontSize="2xl">
                     {user}
                   </Text>
                 ))}
