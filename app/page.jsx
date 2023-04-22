@@ -1,4 +1,3 @@
-// "use client";
 import Welcome from "./Welcome";
 import Tables from "./tables/page";
 import PocketBase from "pocketbase";
@@ -35,20 +34,6 @@ export default function Home() {
           <Tables />
         </div>
       </div>
-      {/* <Flex>
-        <Flex
-          direction="column"
-          bg="#343541"
-          w="20%"
-          h="100vw"
-          overflow="hidden"
-        >
-          <Welcome />
-        </Flex>
-        <Flex direction="row" bg="#202123" w="80%" h="100vw">
-          <Tables />
-        </Flex>
-      </Flex> */}
     </>
   );
 }

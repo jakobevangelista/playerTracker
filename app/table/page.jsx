@@ -66,6 +66,7 @@ export default function Table({
                     <Button
                       key={user}
                       colorScheme="red"
+                      ml="2"
                       onClick={(e) => {
                         e.stopPropagation();
                         deleteUser(user);
@@ -88,7 +89,7 @@ export default function Table({
   } else {
     return (
       <>
-        <Card maxW="sm" margin="6">
+        <Card w="md" maxW="md" margin="6">
           <CardBody>
             <Stack mt="6" spacing="3">
               <Heading size="md">{tableName}</Heading>
@@ -100,6 +101,7 @@ export default function Table({
                 {tableUsers?.map((user) => (
                   <Text key={user} color="blue.600" fontSize="2xl">
                     {user}
+                    {user === pb.authStore.model.id ? <Text>^[you]</Text> : ""}
                   </Text>
                 ))}
               </Text>
