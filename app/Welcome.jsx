@@ -56,8 +56,13 @@ export default function Welcome() {
       },
       body: JSON.stringify({ message: textMessage }),
     });
-    setTextMessage("");
-    router.refresh();
+    const apiResponse = await res.json();
+    if (apiResponse.success) {
+      setTextMessage("");
+      router.refresh();
+    } else {
+      error("did not send");
+    }
   }
 
   if (pb.authStore.model?.email === "shadowjakey27@gmail.com") {
@@ -92,7 +97,10 @@ export default function Welcome() {
           <form onSubmit={(e) => e.preventDefault()}>
             <FormControl id="textMessage" mb={4}>
               <FormLabel>Text Message</FormLabel>
-              <Textarea onChange={(e) => setTextMessage(e.target.value)} />
+              <Textarea
+                value={textMessage}
+                onChange={(e) => setTextMessage(e.target.value)}
+              />
             </FormControl>
             <Button colorScheme="blue" type="submit" onClick={handleSendText}>
               Send Text

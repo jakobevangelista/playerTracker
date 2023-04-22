@@ -6,7 +6,7 @@ export async function POST(request) {
   const accountSid = process.env.TWILIO_ACCOUNT_SID;
   const authToken = process.env.TWILIO_AUTH_TOKEN;
   const client = twilio(accountSid, authToken);
-  await client.messages
+  return client.messages
     .create({
       body: body.message,
       from: "+19798145647",
@@ -14,7 +14,10 @@ export async function POST(request) {
     })
     .then((message) => {
       console.log(message.sid);
-      return NextResponse.json({ response: "Hello, Next.js!" });
+      return NextResponse.json({ success: true });
     })
-    .catch((err) => console.error(err));
+    .catch((err) => {
+      console.error(err);
+      return NextResponse.json({ success: false });
+    });
 }
