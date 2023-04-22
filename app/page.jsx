@@ -2,6 +2,7 @@ import Welcome from "./Welcome";
 import Tables from "./tables/page";
 import PocketBase from "pocketbase";
 import Header from "./Header";
+import Resetbutton from "./Resetbutton";
 
 export const dynamic = "auto",
   dynamicParams = true,
@@ -33,8 +34,9 @@ export default function Home() {
         {/* <div className="flex flex-col bg-[#343541] w-1/5 h-screen text-white overflow-hidden"> */}
         <Welcome />
         {/* </div> */}
-        <div className="flex flex-row w-screen md:w-5/6 bg-[#202123] h-screen overflow-auto text-white">
+        <div className="flex flex-col md:flex-row w-screen md:w-5/6 bg-[#202123] h-screen overflow-auto text-white">
           <Tables />
+          <Resetbutton />
         </div>
       </div>
     </>
