@@ -74,7 +74,6 @@ export default function Welcome() {
           align="Center"
           mx="3"
           my="3"
-          color="white"
           onClick={goHome}
           // className="text-center py-3 px-3 rounded-md hover:underline text-white cursor-pointer"
         >
@@ -86,14 +85,14 @@ export default function Welcome() {
         <Box maxW="md" mx="auto" mt={8}>
           <form onSubmit={(e) => e.preventDefault()}>
             <FormControl id="tableName" mb={4}>
-              <FormLabel color="white">Table Name</FormLabel>
+              <FormLabel>Table Name</FormLabel>
               <Input
                 type="text"
                 onChange={(e) => setTableName(e.target.value)}
               />
             </FormControl>
             <FormControl id="description" mb={4}>
-              <FormLabel color="white">Description</FormLabel>
+              <FormLabel>Description</FormLabel>
               <Textarea onChange={(e) => setTableDescription(e.target.value)} />
             </FormControl>
             <Button colorScheme="blue" type="submit" onClick={handleAddTable}>
@@ -102,7 +101,7 @@ export default function Welcome() {
           </form>
           <form onSubmit={(e) => e.preventDefault()}>
             <FormControl id="textMessage" mb={4}>
-              <FormLabel color="white">Text Message</FormLabel>
+              <FormLabel>Text Message</FormLabel>
               <Textarea
                 value={textMessage}
                 onChange={(e) => setTextMessage(e.target.value)}
@@ -122,7 +121,6 @@ export default function Welcome() {
         align="Center"
         mx="3"
         my="3"
-        color="white"
         // className="text-center py-3 px-3 rounded-md hover:underline text-white cursor-pointer"
       >
         Welcome {pb.authStore.model.username}

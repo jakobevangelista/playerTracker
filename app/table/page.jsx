@@ -51,7 +51,7 @@ export default function Table({
   if (pb.authStore.model?.email === "shadowjakey27@gmail.com") {
     return (
       <>
-        <Card maxW="sm" className="m-6" padding="6">
+        <Card maxW="sm" margin="6">
           <CardBody>
             <Stack mt="6" spacing="3">
               <Heading size="md">{tableName}</Heading>

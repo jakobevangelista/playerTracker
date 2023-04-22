@@ -1,9 +1,7 @@
-"use client";
+// "use client";
 import Welcome from "./Welcome";
 import Tables from "./tables/page";
 import PocketBase from "pocketbase";
-
-import { Flex } from "@chakra-ui/react";
 
 export const dynamic = "auto",
   dynamicParams = true,
@@ -29,16 +27,15 @@ export default function Home() {
   return (
     <>
       {/* <div>{data.response}</div> */}
-      {/* <div className="flex flex-row">
+      <div className="flex flex-row">
         <div className="flex flex-col bg-[#343541] w-1/5 h-screen text-white overflow-hidden">
           <Welcome />
         </div>
         <div className="flex flex-row w-5/6 bg-[#202123] h-screen overflow-auto text-white">
           <Tables />
-          
         </div>
-      </div> */}
-      <Flex>
+      </div>
+      {/* <Flex>
         <Flex
           direction="column"
           bg="#343541"
@@ -51,7 +48,7 @@ export default function Home() {
         <Flex direction="row" bg="#202123" w="80%" h="100vw">
           <Tables />
         </Flex>
-      </Flex>
+      </Flex> */}
     </>
   );
 }

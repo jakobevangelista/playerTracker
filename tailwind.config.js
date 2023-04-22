@@ -9,4 +9,14 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-}
+  corePlugins: {
+    preflight: false,
+  },
+  layers: {
+    utilities: {
+      base: false,
+      components: false,
+      utilities: true,
+    },
+  },
+};
