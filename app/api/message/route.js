@@ -15,5 +15,6 @@ export async function POST(request) {
     .then((message) => {
       console.log(message.sid);
       return NextResponse.json({ response: "Hello, Next.js!" });
-    });
+    })
+    .catch((err) => console.error(err));
 }
