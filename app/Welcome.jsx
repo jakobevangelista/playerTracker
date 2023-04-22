@@ -10,6 +10,8 @@ import {
   FormLabel,
   Input,
   Textarea,
+  Center,
+  Text,
 } from "@chakra-ui/react";
 import { useState } from "react";
 
@@ -68,26 +70,30 @@ export default function Welcome() {
   if (pb.authStore.model?.email === "shadowjakey27@gmail.com") {
     return (
       <>
-        <div
+        <Text
+          align="Center"
+          mx="3"
+          my="3"
+          color="white"
           onClick={goHome}
-          className="text-center py-3 px-3 rounded-md hover:underline text-white cursor-pointer"
+          // className="text-center py-3 px-3 rounded-md hover:underline text-white cursor-pointer"
         >
-          Welcome {pb.authStore.model.email}
-        </div>
+          Welcome admin {pb.authStore.model.email}
+        </Text>
         <Button colorScheme="blue" onClick={logout}>
           Logout {pb.authStore.model.email}
         </Button>
         <Box maxW="md" mx="auto" mt={8}>
           <form onSubmit={(e) => e.preventDefault()}>
             <FormControl id="tableName" mb={4}>
-              <FormLabel>Table Name</FormLabel>
+              <FormLabel color="white">Table Name</FormLabel>
               <Input
                 type="text"
                 onChange={(e) => setTableName(e.target.value)}
               />
             </FormControl>
             <FormControl id="description" mb={4}>
-              <FormLabel>Description</FormLabel>
+              <FormLabel color="white">Description</FormLabel>
               <Textarea onChange={(e) => setTableDescription(e.target.value)} />
             </FormControl>
             <Button colorScheme="blue" type="submit" onClick={handleAddTable}>
@@ -96,7 +102,7 @@ export default function Welcome() {
           </form>
           <form onSubmit={(e) => e.preventDefault()}>
             <FormControl id="textMessage" mb={4}>
-              <FormLabel>Text Message</FormLabel>
+              <FormLabel color="white">Text Message</FormLabel>
               <Textarea
                 value={textMessage}
                 onChange={(e) => setTextMessage(e.target.value)}
@@ -112,12 +118,15 @@ export default function Welcome() {
   }
   return (
     <>
-      <div
-        onClick={goHome}
-        className="text-center py-3 px-3 rounded-md hover:underline text-white cursor-pointer"
+      <Text
+        align="Center"
+        mx="3"
+        my="3"
+        color="white"
+        // className="text-center py-3 px-3 rounded-md hover:underline text-white cursor-pointer"
       >
         Welcome {pb.authStore.model.username}
-      </div>
+      </Text>
       <Button colorScheme="blue" onClick={logout}>
         Logout {pb.authStore.model.email}
       </Button>

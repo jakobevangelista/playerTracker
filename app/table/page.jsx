@@ -11,7 +11,8 @@ import {
 } from "@chakra-ui/react";
 import BottomButton from "./BottomButtons";
 import PocketBase from "pocketbase";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
+import { usePocket } from "../PocketBaseWrapper";
 
 export const dynamic = "auto",
   dynamicParams = true,
@@ -30,6 +31,10 @@ export default function Table({
   tableName,
 }) {
   const router = useRouter();
+  const user = usePocket();
+  if (!user) {
+    redirect("login");
+  }
 
   async function deleteUser(userId) {
     const targetIndex = tableUsers.indexOf(userId);
@@ -46,7 +51,7 @@ export default function Table({
   if (pb.authStore.model?.email === "shadowjakey27@gmail.com") {
     return (
       <>
-        <Card maxW="sm" className="m-6">
+        <Card maxW="sm" className="m-6" padding="6">
           <CardBody>
             <Stack mt="6" spacing="3">
               <Heading size="md">{tableName}</Heading>
@@ -83,7 +88,7 @@ export default function Table({
   } else {
     return (
       <>
-        <Card maxW="sm" className="m-6">
+        <Card maxW="sm" margin="6">
           <CardBody>
             <Stack mt="6" spacing="3">
               <Heading size="md">{tableName}</Heading>

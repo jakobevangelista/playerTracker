@@ -1,6 +1,7 @@
 import "./globals.css";
 import PocketBaseWrapper from "./PocketBaseWrapper";
 import ChakraUiWrapper from "./ChakraUiWrapper";
+import { PocketProvider } from "./PocketBaseWrapper";
 
 export const metadata = {
   title: "Player Tracker",
@@ -11,9 +12,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <ChakraUiWrapper>
-          <PocketBaseWrapper>{children}</PocketBaseWrapper>
-        </ChakraUiWrapper>
+        <PocketProvider>
+          <ChakraUiWrapper>{children}</ChakraUiWrapper>
+        </PocketProvider>
       </body>
     </html>
   );
