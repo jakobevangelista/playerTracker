@@ -29,7 +29,7 @@ export default function Home() {
       {/* <div>{data.response}</div> */}
       {/* <Header /> */}
 
-      <div className="flex md:flex-row">
+      <div className="flex flex-col md:flex-row">
         {/* <div className="flex flex-col bg-[#343541] w-1/5 h-screen text-white overflow-hidden"> */}
         <Welcome />
         {/* </div> */}
