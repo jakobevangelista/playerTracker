@@ -56,6 +56,8 @@ export default function Welcome() {
       },
       body: JSON.stringify({ message: textMessage }),
     });
+    setTextMessage("");
+    router.refresh();
   }
 
   if (pb.authStore.model?.email === "shadowjakey27@gmail.com") {
